@@ -1,6 +1,6 @@
 module.exports = (app, db) => {
   app.get("/api/tweets", (req, res) => {
-    db.Tweet.findAll({}).then(result => {
+    db.Tweet.findAll({ order: [["updatedAt", "DESC"]] }).then(result => {
       res.json(result);
     });
   });
